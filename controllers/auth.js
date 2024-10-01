@@ -32,9 +32,10 @@ export const register = async (req, res) => {
       impressions: Math.floor(Math.random() * 10000),
     });
     const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
+    // console.log("new user added",savedUser)
+    return res.status(201).json(savedUser);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message,message:"error message" });
   }
 };
 
